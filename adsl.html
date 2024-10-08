@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offre ADSL d'Orange</title>
+    <style>
+        @font-face {
+            font-family: 'Degular';
+            src: url('path/to/Degular-Regular.woff2') format('woff2'), /* Update this path */
+                 url('path/to/Degular-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Degular';
+            src: url('path/to/Degular-SemiBold.woff2') format('woff2'), /* Update this path */
+                 url('path/to/Degular-SemiBold.woff') format('woff');
+            font-weight: 600; /* Semi-bold weight */
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'Degular', Arial, sans-serif; /* Use Degular font */
+            background-color: white;
+            color: black;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: orange;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        nav {
+            background-color: black; /* Changed to black */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            position: relative;
+        }
+
+        nav img {
+            height: 80px; /* Set default logo size */
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        .card {
+            border: 1px solid orange;
+            border-radius: 10px;
+            width: 700px;
+            margin: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .offer-details {
+            flex: 1;
+            margin: 0 20px;
+        }
+        .offer-title {
+            font-size: 24px;
+            color: orange;
+        }
+        .button {
+            background-color: orange;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .form-container {
+            display: none;
+            background: rgba(255, 165, 0, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        .form-container input, .form-container select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid orange;
+            border-radius: 5px;
+        }
+        .close-button {
+            background-color: red;
+            border: none;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<nav>
+    <img src="ARRAFWIFiSERVICES.svg" alt="Logo">
+    <div>
+        <a href="fiber-optic.html">Fibre Optique</a>
+        <a href="contact.html">Contactez-nous</a>
+    </div>
+</nav>
+<header>
+    <h1>Offre ADSL d'Orange</h1>
+</header>
+
+<div class="container">
+    <!-- ADSL Offer Card -->
+    <div class="card">
+        <div class="offer-details">
+            <div class="offer-title">Offre ADSL</div>
+            <p>149 MAD/mois</p>
+            <p>Internet jusqu'à 20 Mb/s</p>
+            <p>2 heures d'appels vers les mobiles nationaux et internationaux (fixe et mobile)</p>
+            <p>Appels illimités vers le fixe national</p>
+            <p>Factures supplémentaires : 99 MAD</p>
+            <p>Routeur : 0 MAD</p>
+        </div>
+        <button class="button" onclick="openForm('Offre ADSL', '149')">Demander</button>
+    </div>
+</div>
+
+<!-- Form Container -->
+<div class="form-container" id="formContainer">
+    <h2>Remplir les informations</h2>
+    <input type="text" id="name" placeholder="Nom" required>
+    <input type="tel" id="phone" placeholder="Numéro de téléphone" required>
+    <select id="city" required>
+        <option value="">Choisissez la ville</option>
+        <option value="Casablanca">Casablanca</option>
+        <option value="Rabat">Rabat</option>
+        <option value="Marrakech">Marrakech</option>
+        <option value="Fès">Fès</option>
+        <option value="Agadir">Agadir</option>
+        <option value="Tanger">Tanger</option>
+        <option value="Tétouan">Tétouan</option>
+        <option value="Oujda">Oujda</option>
+        <option value="Asilah">Asilah</option>
+        <option value="Khouribga">Khouribga</option>
+        <!-- Add more Moroccan cities as needed -->
+    </select>
+    <button class="button" onclick="submitForm()">Continuer</button>
+    <button class="close-button" onclick="closeForm()">Fermer</button>
+</div>
+
+<script>
+    function openForm(offerName, price) {
+        document.getElementById('formContainer').style.display = 'block';
+        window.offerName = offerName;
+        window.price = price;
+    }
+
+    function closeForm() {
+        document.getElementById('formContainer').style.display = 'none';
+    }
+
+    function submitForm() {
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const city = document.getElementById('city').value;
+
+        if (!name || !phone || !city) {
+            alert("Veuillez remplir tous les champs !");
+            return;
+        }
+
+        const message = `Offre : ${window.offerName}\nPrix : ${window.price} MAD\nNom : ${name}\nNuméro de téléphone : ${phone}\nVille : ${city}`;
+        const whatsappNumber = "0695944954";
+        const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+        window.open(whatsappLink, '_blank');
+        closeForm();
+    }
+</script>
+
+</body>
+</html>
